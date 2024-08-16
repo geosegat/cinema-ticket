@@ -1,9 +1,10 @@
 import React from "react";
+import Header from "./Components/HeaderMenu";
 
 function App() {
   return (
-    <div>
-      <h1>oi </h1>
+    <div className="bg-black h-screen ">
+      <Header />
     </div>
   );
 }
