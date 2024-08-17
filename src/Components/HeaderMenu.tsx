@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function HeaderMenu() {
   return (
-    <div className="flex flex-row justify-center space-x-6 p-4 items-center">
+    <div className="flex flex-row items-center ">
       <a href="" className="text-white ">
         CINETICKET'
       </a>
