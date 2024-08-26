@@ -19,13 +19,10 @@ const CardButton: React.FC<CardButtonProps> = ({
       onPressLeft();
     }
   };
+
   return (
     <button
-      className="right-2 md:right-4 top-1/2 
-      transform -translate-y-1/2 md:p-2.5 bg-gray-800
-       bg-opacity-75 font-extrabold text-white 
-       rounded-xl
-       "
+      className="p-2.5 bg-gray-800 bg-opacity-75 font-extrabold text-white rounded-xl"
       onClick={handleClick}
     >
       {right ? <IconRight /> : <IconLeft />}
