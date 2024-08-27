@@ -9,16 +9,19 @@ export interface Movie {
   title: string;
   poster_path: string;
   backdrop_path: string;
+  genre: string;
+  duration: string;
+  rating: string;
 }
 
-export const fetchMovies = async (page: number = 1): Promise<Movie[]> => {
+export const fetchMovies = async (page: number = 2): Promise<Movie[]> => {
   try {
     const response = await axios.get(imagemUrlBase, {
       params: {
         include_adult: false,
         include_video: false,
         language: "pt-BR",
-        page: 2,
+        page: page,
         sort_by: "popularity.desc",
       },
       headers: {
