@@ -1,25 +1,18 @@
 import React from "react";
-import HeaderMenu from "./Components/HeaderMenu";
-import StateSelection from "./Components/StateSelection";
-import SearchMovies from "./Components/SearchMovies";
-import { IconUser } from "./assets/Icons";
-import MovieShowcase from "./Components/MovieShowcase";
-import MovieShowcaseT from "./Components/CurrentMovies";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./assets/Screens/Home/Home";
+import SelectShowTime from "./assets/Screens/SelectShowTime/SelectShowTime";
+import SerachMovie from "./assets/Screens/SearchMovie/SerachMovie";
 
 function App() {
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center">
-      <header className="fixed top-0 left-0 w-full bg-black p-6 flex items-center justify-center z-50">
-        <HeaderMenu />
-        <StateSelection label="São Paulo" />
-        <SearchMovies />
-        <IconUser width={20} height={20} className="ml-3" color="white" />
-      </header>
-      <main className=" pt-24 w-full max-w-screen-lg mx-auto flex flex-col items-center">
-        <MovieShowcase />
-        <MovieShowcaseT />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search-movie" element={<SerachMovie />} />
+        <Route path="/select-showtime" element={<SelectShowTime />} />
+      </Routes>
+    </Router>
   );
 }
 
