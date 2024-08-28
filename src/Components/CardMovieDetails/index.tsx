@@ -12,7 +12,7 @@ const dadosMock = {
 
 const CardMovieDetails = () => {
   return (
-    <div>
+    <div className="bg-pink-800">
       <div className="w-56 h-56 bg-yellow-600"></div>
       <img className="rounded-lg shadow-lg" />
       <h1 className="text-white">18 Terror</h1>
