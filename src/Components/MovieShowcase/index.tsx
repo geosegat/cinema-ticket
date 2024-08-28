@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { fetchMovies } from "./movieServices";
-import CardButton from "./CardButton";
-import ButtonBuyTicket from "./ButtonBuyTicket";
+import { fetchMovies } from "../movieServices";
+import CardButton from "../CardButton";
+import ButtonBuyTicket from "../ButtonBuyTicket";
 
 const baseUrl = "https://image.tmdb.org/t/p/";
 const size = "original";

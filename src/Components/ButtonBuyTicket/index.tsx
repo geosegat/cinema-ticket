@@ -1,5 +1,5 @@
 import React from "react";
-import { IconRight } from "./../assets/Icons/index";
+import { IconRight } from "./../../assets/Icons";
 import { useNavigate } from "react-router-dom";
 
 function ButtonBuyTicket() {

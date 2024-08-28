@@ -1,5 +1,5 @@
 import React from "react";
-import { IconLeft, IconRight } from "./../assets/Icons/index";
+import { IconLeft, IconRight } from "./../../assets/Icons";
 
 interface CardButtonProps {
   right?: boolean;
