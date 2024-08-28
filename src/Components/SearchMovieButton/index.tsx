@@ -1,5 +1,5 @@
 import React from "react";
-import { IconSearch } from "../assets/Icons/index";
+import { IconSearch } from "../../assets/Icons/index";
 
 interface SearchMovieProps {
   onClick?: () => void;

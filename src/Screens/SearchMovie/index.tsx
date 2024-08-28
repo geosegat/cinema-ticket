@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CurrentMovies from "../../../Components/CurrentMovies";
-import InputSearchMovie from "../../../Components/InputSerachMovie";
 import { useNavigate } from "react-router-dom";
+import InputSearchMovie from "../../Components/InputSerachMovie";
+import CurrentMovies from "../../Components/CurrentMovies";
 
 function SearchMovie() {
   const navigate = useNavigate();

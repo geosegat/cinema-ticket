@@ -1,5 +1,5 @@
 import React from "react";
-import { Localizacao, CaretDown } from "../assets/Icons";
+import { Localizacao, CaretDown } from "./../../assets/Icons";
 
 interface StateSelectionProps {
   label?: string;

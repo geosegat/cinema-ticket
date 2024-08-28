@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchMovies, Movie as ApiMovie } from "./movieServices";
-import CardButton from "./CardButton";
+import { fetchMovies, Movie as ApiMovie } from "../movieServices";
+import CardButton from "../CardButton";
 
 interface CurrentMoviesProps {
   searchTerm?: string;

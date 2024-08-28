@@ -1,5 +1,5 @@
 import React from "react";
-import { IconCloseCircle } from "../assets/Icons";
+import { IconCloseCircle } from "./../../assets/Icons";
 
 interface InputSearchMovieProps {
   value?: string;
