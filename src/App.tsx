@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./assets/Screens/Home/Home";
-import SelectShowTime from "./assets/Screens/SelectShowTime/SelectShowTime";
-import SerachMovie from "./assets/Screens/SearchMovie/SerachMovie";
+import Home from "./Screens/Home";
+import SelectShowTime from "./Screens/SelectShowTime";
+import SerachMovie from "./Screens/SearchMovie";
 
 function App() {
   return (
