@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../movieServices";
 import CardButton from "../CardButton";
 import ButtonBuyTicket from "../ButtonBuyTicket";
+import { useNavigate } from "react-router-dom";
 
 const baseUrl = "https://image.tmdb.org/t/p/";
 const size = "original";
@@ -19,6 +20,8 @@ const MovieShowcase: React.FC = () => {
   const [transitionClass, setTransitionClass] = useState(
     "transition-transform duration-500"
   );
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -47,6 +50,11 @@ const MovieShowcase: React.FC = () => {
     );
   };
 
+  const handleBuyTicket = () => {
+    const currentMovie = movies[currentIndex];
+    navigate(`/select-showtime`, { state: { movie: currentMovie } });
+  };
+
   const currentMovie = movies[currentIndex];
 
   return (
@@ -64,7 +72,7 @@ const MovieShowcase: React.FC = () => {
               <img
                 src={`${baseUrl}${size}${movie.backdrop_path}`}
                 alt={movie.title}
-                className="object-contain "
+                className="object-contain"
               />
             </div>
           ))}
@@ -75,7 +83,7 @@ const MovieShowcase: React.FC = () => {
           {currentMovie?.title}
         </h1>
         <div className="flex items-center justify-between">
-          <ButtonBuyTicket />
+          <ButtonBuyTicket onClickBuyTicket={handleBuyTicket} />
           <div className="flex space-x-0.5">
             <CardButton onPressLeft={handlePrevious} />
             <CardButton onPressRight={handleNext} right />
