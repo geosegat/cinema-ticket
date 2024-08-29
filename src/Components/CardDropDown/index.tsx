@@ -36,7 +36,7 @@ const CardDropDown: React.FC<CardDropDownProps> = ({
   };
 
   return (
-    <div className="relative inline-block text-left bg-blue-950">
+    <div className="relative inline-block text-left ">
       <button
         type="button"
         onClick={toggleDropdown}
