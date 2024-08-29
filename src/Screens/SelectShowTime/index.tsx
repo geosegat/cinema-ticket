@@ -5,6 +5,7 @@ import FixedHeader from "../../Components/FixedHeader";
 import CurrentMovies from "../../Components/CurrentMovies";
 import CardMovieDetails from "../../Components/CardMovieDetails";
 import CardDropDown from "../../Components/CardDropDown";
+import CardShowTime from "../../Components/CardShowTime";
 
 const baseUrl = "https://image.tmdb.org/t/p/";
 const size = "w200";
@@ -31,11 +32,19 @@ const SelectShowTime: React.FC = () => {
       <FixedHeader onClickSearchMovies={handleSearchMovie} />
       <main className="pt-24 w-full max-w-screen-lg mx-auto flex flex-col ">
         <CardTrailer />
-        <div className="flex bg-pink-900">
+        <div className="flex ">
           <CardMovieDetails />
-          <CardDropDown />
-          <CardDropDown pag={1} />
-          <CardDropDown pag={2} />
+          <div className="">
+            <CardDropDown />
+            <CardDropDown pag={1} />
+            <CardDropDown pag={2} />
+            <div className="flex space-x-0.5">
+              <CardShowTime />
+              <CardShowTime />
+              <CardShowTime />
+              <CardShowTime />
+            </div>
+          </div>
         </div>
         <CurrentMovies />
       </main>
