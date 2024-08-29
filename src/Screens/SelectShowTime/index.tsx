@@ -31,11 +31,12 @@ const SelectShowTime: React.FC = () => {
       <FixedHeader onClickSearchMovies={handleSearchMovie} />
       <main className="pt-24 w-full max-w-screen-lg mx-auto flex flex-col ">
         <CardTrailer />
-        <div className="flex bg-blue-700 ">
+        <div className="flex bg-pink-900">
           <CardMovieDetails />
           <CardDropDown />
+          <CardDropDown pag={1} />
+          <CardDropDown pag={2} />
         </div>
-
         <CurrentMovies />
       </main>
     </div>
