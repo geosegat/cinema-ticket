@@ -5,7 +5,7 @@ import SearchMovies from "../SearchMovieButton";
 import { IconUser } from "../../assets/Icons";
 
 interface FixedHeaderProps {
-  onClickSearchMovies: () => void;
+  onClickSearchMovies?: () => void;
 }
 
 const FixedHeader: React.FC<FixedHeaderProps> = ({ onClickSearchMovies }) => {

@@ -1,20 +1,22 @@
 import React from "react";
-import { IconRight } from "./../../assets/Icons";
-import { useNavigate } from "react-router-dom";
+import { IconRight } from "../../assets/Icons";
 
-function ButtonBuyTicket() {
-  const navigate = useNavigate();
+interface ButtonBuyTicketProps {
+  onClickBuyTicket?: () => void;
+}
+
+const ButtonBuyTicket: React.FC<ButtonBuyTicketProps> = ({
+  onClickBuyTicket,
+}) => {
   return (
     <button
-      onClick={() => {
-        navigate("/select-showtime");
-      }}
+      onClick={onClickBuyTicket}
       className=" bg-white text-black font-bold p-5 rounded-xl flex flex-row items-center "
     >
       COMPRAR INGRESSO
       <IconRight className="ml-1 " />
     </button>
   );
-}
+};
 
 export default ButtonBuyTicket;
