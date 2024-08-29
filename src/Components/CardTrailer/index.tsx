@@ -9,9 +9,9 @@ const CardTrailer = () => {
   };
 
   return (
-    <div className="">
+    <div className=" flex max-w-full min-h-[450px] rounded-lg">
       {isTrailerOpen ? (
-        <div className="bg-red-700 flex justify-center ">
+        <div className="bg-red-700 flex justify-center items-center w-full">
           <button
             onClick={handleClick}
             className="bg-gray-800 bg-opacity-50 backdrop-blur-xl rounded-2xl p-6 flex items-center justify-center shadow-lg"
@@ -20,15 +20,20 @@ const CardTrailer = () => {
           </button>
         </div>
       ) : (
-        <button onClick={handleClick}>
-          <IconCloseCircle className="h-6 w-6 text-white" />
+        <div className=" w-full  ">
+          <div className="flex justify-end text-white text-bold items-center">
+            <button onClick={handleClick}>
+              <h1> FECHAR TRAILER</h1>
+            </button>
+          </div>
+
           <iframe
-            className=" rounded-lg"
+            className="rounded-lg w-full h-full"
             src="https://www.youtube.com/embed/kENEWWNWAB0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        </button>
+        </div>
       )}
     </div>
   );
