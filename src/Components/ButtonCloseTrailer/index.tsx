@@ -7,7 +7,10 @@ interface ButtonCloseTrailerProps {
 
 const ButtonCloseTrailer: React.FC<ButtonCloseTrailerProps> = ({ onClick }) => {
   return (
-    <button onClick={onClick}>
+    <button
+      className="bg-neutral-700 rounded-lg p-3 text-white text-sm font-bold"
+      onClick={onClick}
+    >
       <h1> FECHAR TRAILER</h1>
     </button>
   );
