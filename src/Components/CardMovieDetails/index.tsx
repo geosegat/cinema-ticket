@@ -14,7 +14,7 @@ const dadosMock = {
 const CardMovieDetails = () => {
   return (
     <div className="max-w-lg max-h-full ">
-      <div className="w-56 h-56 bg-yellow-600"></div>
+      <div className="w-56 h-56 bg-yellow-600 rounded-lg"></div>
       <img className="rounded-lg shadow-lg" />
       <h1 className="text-white">18 Terror</h1>
       <h1 className="text-white"></h1>

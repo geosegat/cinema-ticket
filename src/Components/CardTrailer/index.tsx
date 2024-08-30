@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { IconCloseCircle, IconPlayFill } from "../../assets/Icons/index";
+import { IconPlayFill } from "../../assets/Icons/index";
+import ButtonCloseTrailer from "../ButtonCloseTrailer";
 
 const CardTrailer = () => {
-  const [isTrailerOpen, setIsTralerOpen] = useState<boolean>(true);
+  const [isTrailerOpen, setIsTrailerOpen] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleClick = () => {
-    setIsTralerOpen((prev) => !prev);
+    setIsTrailerOpen((prev) => !prev);
+    setIsLoading(true);
+  };
+
+  const handleLoad = () => {
+    setIsLoading(false);
   };
 
   return (
-    <div className="">
+    <div className="flex max-w-full min-h-[450px] rounded-lg">
       {isTrailerOpen ? (
-        <div className="bg-red-700 flex justify-center ">
+        <div className="bg-red-700 flex justify-center items-center w-full rounded-lg">
           <button
             onClick={handleClick}
             className="bg-gray-800 bg-opacity-50 backdrop-blur-xl rounded-2xl p-6 flex items-center justify-center shadow-lg"
@@ -20,15 +27,27 @@ const CardTrailer = () => {
           </button>
         </div>
       ) : (
-        <button onClick={handleClick}>
-          <IconCloseCircle className="h-6 w-6 text-white" />
+        <div className="w-full">
+          <div className="flex justify-end items-center mb-2">
+            <ButtonCloseTrailer onClick={handleClick} />
+          </div>
+
+          {isLoading && (
+            <div className="flex justify-center items-center w-full h-full">
+              <div className="loader border-t-4 border-b-4 border-red-500 rounded-full w-12 h-12 animate-spin"></div>
+            </div>
+          )}
+
           <iframe
-            className=" rounded-lg"
+            className={`rounded-lg w-full h-full ${
+              isLoading ? "hidden" : "block"
+            }`}
             src="https://www.youtube.com/embed/kENEWWNWAB0"
+            onLoad={handleLoad}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        </button>
+        </div>
       )}
     </div>
   );
