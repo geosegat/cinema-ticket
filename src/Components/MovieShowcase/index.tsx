@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchMovies } from "../movieServices";
+import { fetchMovies } from "../../services/movieServices";
 import CardButton from "../CardButton";
 import ButtonBuyTicket from "../ButtonBuyTicket";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,11 @@ interface Movie {
   backdrop_path: string;
 }
 
-const MovieShowcase: React.FC = () => {
+interface MovieShowcaseProps {
+  page?: number;
+}
+
+const MovieShowcase: React.FC<MovieShowcaseProps> = ({ page = 1 }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transitionClass, setTransitionClass] = useState(
@@ -26,7 +30,7 @@ const MovieShowcase: React.FC = () => {
   useEffect(() => {
     const loadMovies = async () => {
       try {
-        const results = await fetchMovies(1);
+        const results = await fetchMovies(page);
         setMovies(results.slice(0, 15));
       } catch (error) {
         console.error("Erro ao carregar filmes:", error);
@@ -58,7 +62,7 @@ const MovieShowcase: React.FC = () => {
   const currentMovie = movies[currentIndex];
 
   return (
-    <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden rounded-xl mb-10">
+    <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden rounded-xl ">
       {movies.length > 0 && (
         <div
           className={`flex ${transitionClass} absolute w-full h-full`}

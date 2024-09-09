@@ -1,12 +1,10 @@
-// tailwind.config.js
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    // Adicione outros caminhos de arquivos onde você usa Tailwind CSS
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      // Adicione as classes personalizadas aqui
+      spacing: {
+        1: "0.25rem",
+      },
       scrollbar: {
         hide: {
           "scrollbar-width": "none",

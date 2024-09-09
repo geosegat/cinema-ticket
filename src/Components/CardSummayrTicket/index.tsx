@@ -23,7 +23,7 @@ const CardSummaryTicket: React.FC<CardSummaryProps> = ({
   ticket,
 }) => {
   return (
-    <div className="p-4 text-white">
+    <div className="p-4 text-white flex flex-col items-center">
       <div className="mb-4">
         <img src={movie?.image} alt={movie?.title} className="w-20 h-28 mb-4" />
         <h2 className="text-xl">{movie?.title}</h2>

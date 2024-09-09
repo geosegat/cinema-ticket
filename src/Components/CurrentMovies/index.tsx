@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { fetchMovies, Movie as ApiMovie } from "../movieServices";
+import { fetchMovies, Movie as ApiMovie } from "../../services/movieServices";
 import CardButton from "../CardButton";
 
 interface CurrentMoviesProps {
   searchTerm?: string;
+  label?: string;
+  page?: number;
 }
 
-const CurrentMovies: React.FC<CurrentMoviesProps> = ({ searchTerm = "" }) => {
+const CurrentMovies: React.FC<CurrentMoviesProps> = ({
+  label,
+  searchTerm = "",
+  page = 1,
+}) => {
   const [movies, setMovies] = useState<ApiMovie[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadMovies = async () => {
       try {
-        const results = await fetchMovies(1);
+        const results = await fetchMovies(page);
         setMovies(results.slice(0, 15));
       } catch (error) {
         console.error("Erro ao carregar filmes:", error);
@@ -25,8 +31,12 @@ const CurrentMovies: React.FC<CurrentMoviesProps> = ({ searchTerm = "" }) => {
     loadMovies();
   }, []);
 
+  const uniqueId = `movies-container-${label
+    ?.replace(/\s+/g, "-")
+    .toLowerCase()}`;
+
   const handleScroll = (direction: "left" | "right") => {
-    const container = document.getElementById("movies-container");
+    const container = document.getElementById(uniqueId);
     if (container) {
       const scrollAmount = direction === "right" ? 880 : -880;
       container.scrollBy({ left: scrollAmount, behavior: "smooth" });
@@ -48,7 +58,7 @@ const CurrentMovies: React.FC<CurrentMoviesProps> = ({ searchTerm = "" }) => {
   return (
     <div className="relative w-full rounded-lg">
       <div className="flex row-auto items-center justify-between mb-5">
-        <h2 className="text-white text-3xl font-bold">Em Cartaz</h2>
+        <h2 className="text-white text-3xl font-bold">{label}</h2>
         <div className="flex space-x-1">
           <CardButton onPressLeft={() => handleScroll("left")} />
           <CardButton onPressRight={() => handleScroll("right")} right />
@@ -56,7 +66,7 @@ const CurrentMovies: React.FC<CurrentMoviesProps> = ({ searchTerm = "" }) => {
       </div>
 
       <div
-        id="movies-container"
+        id={uniqueId}
         className="flex overflow-x-auto scrollbar-hide space-x-1 snap-x snap-mandatory w-full"
         style={{ scrollSnapType: "x mandatory" }}
       >

@@ -10,9 +10,13 @@ const CardMovieInfoRow: React.FC<CardMovieInfoRowProps> = ({
   value,
 }) => {
   return (
-    <div className="flex justify-between border-b border-neutral-800 py-6">
-      <h1 className="text-white font-bold">{label}</h1>
-      <h1 className="text-neutral-500 font-bold">{value}</h1>
+    <div className="flex border-b border-neutral-800 py-6 ">
+      <div className="flex-1">
+        <h1 className="text-white font-bold  ">{label}</h1>
+      </div>
+      <div className="flex-1 flex justify-end">
+        <h1 className="text-neutral-500 font-bold   ">{value}</h1>
+      </div>
     </div>
   );
 };

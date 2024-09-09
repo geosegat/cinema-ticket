@@ -17,9 +17,10 @@ const Home: React.FC = () => {
   return (
     <div className="bg-black min-h-screen flex flex-col items-center">
       <FixedHeader onClickSearchMovies={handleSearchMovie} />
-      <main className="pt-24 w-full max-w-screen-lg mx-auto flex flex-col items-center">
-        <MovieShowcase />
-        <CurrentMovies />
+      <main className="pt-24 w-full space-y-10 max-w-screen-lg mx-auto flex flex-col items-center">
+        <MovieShowcase page={5} />
+        <CurrentMovies label="Em Cartaz" />
+        <CurrentMovies page={3} label="Em Breve" />
       </main>
     </div>
   );

@@ -6,7 +6,6 @@ import CurrentMovies from "../../Components/CurrentMovies";
 import CardMovieDetails from "../../Components/CardMovieDetails";
 import CardDropDown from "../../Components/CardDropDown";
 import CardShowTime from "../../Components/CardShowTime";
-import CardSessionInfo from "../../Components/CardSessionInfo";
 
 const baseUrl = "https://image.tmdb.org/t/p/";
 const size = "w200";
@@ -16,6 +15,10 @@ const SelectShowTime: React.FC = () => {
 
   const handleSearchMovie = () => {
     navigate("/search-movie");
+  };
+
+  const handleSelectTicket = () => {
+    navigate("/select-seatselecion");
   };
   const location = useLocation();
   const movie = location.state?.movie as {
@@ -43,14 +46,14 @@ const SelectShowTime: React.FC = () => {
                 <CardDropDown pag={2} />
               </div>
 
-              <div className=" space-x-1  ">
-                <CardShowTime classname="mt-24" />
+              <div className="space-x-1">
+                <CardShowTime onClick={handleSelectTicket} classname="mt-24" />
                 <CardShowTime classname="mt-12" />
               </div>
             </div>
           </div>
         </div>
-        <CurrentMovies />
+        <CurrentMovies label="Top Filmes" />
       </main>
     </div>
   );
